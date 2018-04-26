@@ -1,15 +1,33 @@
 var gulp = require("gulp"),
-uglify = require("gulp-uglify"),
-rename = require("gulp-rename"),
-browserSync = require("browser-sync"),
-eslint = require("gulp-eslint");
+    uglify = require("gulp-uglify"),
+    rename = require("gulp-rename"),
+    browserSync = require("browser-sync"),
+    eslint = require("gulp-eslint"),
+    sass = require("gulp-sass"),
+    autoprefixer = require("gulp-autoprefixer"),
+    cssnano = require("gulp-cssnano");
 
 
+gulp.task("sass", function() {
+        return gulp
+          .src("./sass/style.scss")
+          .pipe(sass())
+          .pipe(
+            autoprefixer({
+              browsers: ["last 2 versions"]
+            })
+          )
+          .pipe(gulp.dest("./build/css"))
+          .pipe(cssnano())
+          .pipe(rename("style.min.css"))
+          .pipe(gulp.dest("./build/css"));
+});
 
 
 
 gulp.task("watch", function(done) {
     gulp.watch('js/*.js', gulp.series("scripts"));
+    gulp.watch('sass/*.scss', gulp.series("sass"));
     done();
 });
 
@@ -21,7 +39,7 @@ gulp.task("browser-sync", function(done) {
     });
     
     
-    gulp.watch(["build/js/*.js", "style.css"])
+    gulp.watch(["build/js/*.js", "build/css/*.css"])
     .on("change", browserSync.reload);
     done();
     
