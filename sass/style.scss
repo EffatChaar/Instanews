@@ -1,18 +1,6 @@
-@import 'sass/variables';
-@import 'sass/mixins';
 
-li {
-    flex: 0 1 100%;
-    @include desktop {
-       flex: 0 1 50%;
-    }
- }
-
-
-$base-color: #000;
-body {
-    background: $base-color;
-}
-h1{
-    color: #fff;
-}
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+@import 'fonts';
+@import 'content';

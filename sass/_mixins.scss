@@ -1,5 +1,17 @@
-@mixin desktop {
-    @media (min-width: $desktop-width) {
-      @content;
-    }
-  }
+@mixin content-wrapper-resize {
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+@mixin content-sub-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    padding-left: 2rem;
+}
