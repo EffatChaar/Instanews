@@ -15,7 +15,7 @@ $(document).ready(function () {
           var url = 'https://api.nytimes.com/svc/topstories/v2/';
           url += $(this).val();
           url += '.json';
-          url += '?' + $.param({ 'api-key': '2eb56f19cf854564af82b4d0641928ec' });
+          url += '?' + $.param({ 'api-key': '0a025eb8a8c04e34b0df1443720b590f' });
   
           $.ajax({
             url: url,
