@@ -1,17 +1,21 @@
-@mixin content-wrapper-resize {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
+$tablet-width: 600px;
+$desktop-width: 1000px;
+$mini-mobile-width: 479px;
+
+@mixin mini-mobile {
+	@media (min-width: $mini-mobile-width) {
+		@content;
+	}
 }
 
-@mixin content-sub-wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    height: 6rem;
-    padding-left: 2rem;
+@mixin tablet {
+	@media (min-width: $tablet-width) {
+	  @content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: $desktop-width) {
+	  @content;
+	}
 }
